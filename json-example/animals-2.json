@@ -1,0 +1,26 @@
+[
+	{
+		"name" : "Whiskers",
+		"species" : "Cat",
+		"foods" : {
+			"likes" : ["Celery", "Strawberries"],
+			"dislikes" : ["Carrots"]
+		}
+	},
+	{
+		"name" : "Woof",
+		"species" : "Dog",
+		"foods" : {
+			"likes" : ["Dog Food"],
+			"dislikes" : ["Cat Food"]
+		}
+	},
+	{
+		"name" : "Fluffy",
+		"species" : "Cat",
+		"foods" : {
+			"likes" : ["Canned Food"],
+			"dislikes" : ["Dry Food"]
+		}
+	}
+]
