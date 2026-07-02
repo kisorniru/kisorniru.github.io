@@ -1,20 +1,20 @@
-# README #
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-This project is for JSON example.
+# Run and deploy your AI Studio app
 
-### What is this repository for? ###
+This contains everything you need to run your app locally.
 
-* JSON
-* [Learn JSON](http://www.json.org/)
+View your app in AI Studio: https://ai.studio/apps/657e9f0b-e20b-4ebe-bf33-eecce652eeca
 
-### How do I get set up? ###
+## Run Locally
 
-* git clone https://github.com/kisorniru/json-example.git
+**Prerequisites:**  Node.js
 
-### Contribution guidelines ###
 
-* Md. Noor-A-Alam Siddique
-
-### Who do I talk to? ###
-
-* Md. Noor-A-Alam Siddique
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
