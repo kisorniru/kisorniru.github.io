@@ -31,7 +31,7 @@ Main workflows supported:
 | Styling/theme | `src/index.css`, Tailwind classes in `src/App.tsx` |
 | Build configuration | `package.json`, `vite.config.ts`, `tsconfig.json` |
 | AI Studio metadata/env placeholders | `README.md`, `.env.example`, `metadata.json`, `assets/.aistudio/.gitignore` |
-| Public assets | `public/profile.jpeg` |
+| Public assets | `public/Noor-A-Alam_Siddique.jpeg` |
 
 ## Business Domain Analysis
 
@@ -86,7 +86,7 @@ Inferred rules:
 | --- | --- | --- | --- | --- |
 | Global header navigation | Provides sticky top navigation to portfolio sections. | `src/App.tsx` | None | Anchor links: `#about-section-point`, `#experience-section-point`, `#projects-section-point`, `#skills-section-point`, `#contact-section-point` |
 | Side portfolio index | Desktop-friendly section navigation and resume link. | `src/App.tsx` | None | Same anchor links; `/resume.pdf` |
-| Hero/profile section | Presents identity, positioning, metrics, CTAs, portrait. | `src/App.tsx`, `src/data.ts`, `public/profile.jpeg` | None | `#projects-section-point`, `#contact-section-point` |
+| Hero/profile section | Presents identity, positioning, metrics, CTAs, portrait. | `src/App.tsx`, `src/data.ts`, `public/Noor-A-Alam_Siddique.jpeg` | None | `#projects-section-point`, `#contact-section-point` |
 | About/SQA section | Explains QA-rooted engineering philosophy with selectable pillars. | `src/App.tsx` | None | Local React state only |
 | Experience timeline | Displays professional history and led projects. | `src/App.tsx`, `src/data.ts` | None | None |
 | Project case study grid | Lists portfolio projects with category filter, stack, and metrics. | `src/App.tsx`, `src/data.ts` | None | None |
@@ -110,7 +110,7 @@ Inferred rules:
 | Cache | None | Redis appears only in portfolio content descriptions. |
 | Queue system | None | Queue/event references are portfolio case-study copy only. |
 | Search engine | None | No search implementation. |
-| Storage system | Static public assets | `public/profile.jpeg`; expected `/resume.pdf` is referenced but not present. |
+| Storage system | Static public assets | `public/Noor-A-Alam_Siddique.jpeg`; expected `/resume.pdf` is referenced but not present. |
 | Build tool | Vite 6 | `vite.config.ts`, package scripts. |
 | CI/CD | None found | No `.github`, pipeline, Docker, or deployment config found. |
 | Testing | TypeScript compile check only | `npm run lint` runs `tsc --noEmit`; no unit/e2e framework found. |
@@ -385,7 +385,7 @@ No authentication or authorization is implemented.
 | Production deployment target | No Netlify/Vercel/Cloud Run/Docker/GitHub Actions config exists. |
 | Analytics | No analytics provider or measurement code exists. |
 | Real resume asset | App links to `/resume.pdf`, but no `public/resume.pdf` was found. |
-| Portrait path consistency | Data points to `/profile.jpg`, but the existing asset is `public/profile.jpeg`; UI fallback text mentions `public/profile.jpeg`. |
+| Portrait path consistency | Data points to `/profile.jpg`, but the existing asset is `public/Noor-A-Alam_Siddique.jpeg`; UI fallback text mentions `public/Noor-A-Alam_Siddique.jpeg`. |
 | Gemini functionality | Env and metadata mention Gemini, but no source code uses it. |
 | Exact content truth | Portfolio claims are static content and were not externally verified. |
 
@@ -406,7 +406,7 @@ User Browser
             -> uses Motion animations
             -> uses Lucide icons
           -> Static Assets
-            -> public/profile.jpeg
+            -> public/Noor-A-Alam_Siddique.jpeg
             -> /resume.pdf referenced but missing
           -> External Browser Actions
             -> mailto:kisorniru@gmail.com
@@ -457,7 +457,7 @@ No Database
 | Monolithic `App.tsx` | Harder to maintain, test, and reason about as features grow. |
 | Hidden unreachable deck code | Adds complexity and dummy state declarations despite not rendering. |
 | Missing `/resume.pdf` | Resume links may 404 in production. |
-| Portrait path mismatch | `/profile.jpg` is configured while only `profile.jpeg` exists, likely forcing placeholder fallback. |
+| Portrait path mismatch | `/profile.jpg` is configured while only `Noor-A-Alam_Siddique.jpeg` exists, likely forcing placeholder fallback. |
 | No route/test coverage | Regressions in interactive UI require manual testing. |
 | No deployment config | Production behavior depends on undocumented hosting setup. |
 | AI Studio env references unused | May confuse developers expecting Gemini integration. |
@@ -465,7 +465,7 @@ No Database
 ### Recommended First Refactor
 
 1. Split `App.tsx` into components: `Header`, `SideNav`, `Hero`, `About`, `ExperienceTimeline`, `ProjectGrid`, `ProjectModal`, `SkillsMatrix`, `ContactSection`.
-2. Fix asset path consistency: either rename `profile.jpeg` to `profile.jpg` or update `STR_PORT_IMAGE`.
+2. Fix asset path consistency: either rename `Noor-A-Alam_Siddique.jpeg` to `profile.jpg` or update `STR_PORT_IMAGE`.
 3. Add `public/resume.pdf` or remove/disable resume download links until available.
 4. Remove or isolate the hidden strategy deck code.
 5. Add a basic smoke test or Playwright test for page load, project filtering, modal open/close, and contact links.

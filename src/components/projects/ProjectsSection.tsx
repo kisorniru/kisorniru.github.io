@@ -91,7 +91,7 @@ function ProjectCard({ project, onInspect }: { project: Project; onInspect: () =
         onClick={onInspect}
         className="flex w-full items-center justify-center gap-1 rounded border border-stone-400 bg-stone-200 px-3 py-1.5 text-center font-mono text-[10px] text-stone-950 transition-all hover:bg-stone-300"
       >
-        <Terminal size={12} /> Inspect Live Architecture
+        <Terminal size={12} /> Inspect Case Study
       </button>
     </article>
   );

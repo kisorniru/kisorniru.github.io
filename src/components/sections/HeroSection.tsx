@@ -16,23 +16,20 @@ export default function HeroSection({ portraitLoadFailed, onPortraitError }: Her
       <div className="flex flex-col justify-center space-y-6">
         <div className="space-y-2">
           <div className={`inline-flex w-fit items-center gap-1.5 rounded border border-stone-400/60 bg-stone-200 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest ${theme.accentText}`}>
-            <Cpu size={11} /> Solutions Architect & Lead
+            <Cpu size={11} /> Solutions Architect & Senior Software Engineer
           </div>
           <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight text-stone-950 sm:text-4.5xl">
             {STR_PORT_TITLE}
           </h2>
           <p className="text-sm leading-relaxed text-stone-700 sm:text-base">
-            Transforming business logic into hyper-performant backend architectures. With{' '}
-            <strong>11+ years of experience</strong> across eCommerce, FinTech, and real-time
-            systems, I engineer platforms designed to handle millions of transactions, strict
-            compliance, and complex data-driven modules with mathematical quality.
+            Accomplished Senior Software Engineer with <strong>11+ years of experience</strong> architecting and delivering secure, scalable backend systems across<strong> e-Commerce, foodTech, EdTech, and data-driven platforms.</strong> Strong expertise in <strong>Python (Django, FastAPI, Flask) </strong>and <strong>PHP (Laravel),</strong> with deep experience in <strong>microservices, cloud infrastructure, large-scale data processing, and payment integrations.</strong> Proven ability to lead technical teams, drive architectural decisions, and build high-availability systems at scale.
           </p>
         </div>
 
         <div className="grid grid-cols-3 gap-3 border-y border-stone-300 py-4 font-mono">
-          <Stat value="11" label="Years Depth" />
-          <Stat value="1M" label="Data Records Daily" bordered />
-          <Stat value="5" label="Team Lead Yrs" bordered />
+          <Stat value="11" label="Years Experience" />
+          <Stat value="6" label="Years with Solution Design and Leading" bordered />
+          <Stat value="1M" label="Records Processed" bordered />
         </div>
 
         <div className="flex flex-wrap gap-3">
@@ -40,13 +37,13 @@ export default function HeroSection({ portraitLoadFailed, onPortraitError }: Her
             href="#projects-section-point"
             className={`${theme.accentBg} ${theme.accentBgHover} flex items-center gap-2 rounded px-4 py-2 text-xs font-semibold uppercase tracking-wider text-stone-950 shadow-lg transition-all`}
           >
-            Examine Microservices <ArrowRight size={13} />
+            Explore Projects <ArrowRight size={13} />
           </a>
           <a
             href="#contact-section-point"
             className="flex items-center gap-2 rounded border border-stone-400 bg-stone-200/80 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-stone-800 transition-all hover:border-amber-500 hover:bg-stone-300"
           >
-            Request Technical Audit
+            Discuss an Opportunity
           </a>
         </div>
       </div>

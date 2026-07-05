@@ -4,28 +4,28 @@ import SectionHeading from '../layout/SectionHeading';
 const pillars = [
   {
     icon: Terminal,
-    title: '1. Defensive Contracts',
-    description: 'Designing API layers that pre-validate limits to avoid unhandled system exceptions or DB lockups.',
+    title: '1. Python Services',
+    description: 'Building scalable APIs and microservices with Django, Flask, and FastAPI.',
     color: 'text-amber-500',
   },
   {
     icon: ShieldCheck,
-    title: '2. Safe Escrows & Finance',
-    description: 'Managing double-entry ledgers inside PostgreSQL with lock state isolation to prevent payment token leakages.',
+    title: '2. Laravel Platforms',
+    description: 'Delivering secure Laravel and Symfony APIs for commerce, aviation, and logistics.',
     color: 'text-indigo-600',
   },
   {
     icon: Layers,
-    title: '3. Queue-Driven Resilience',
-    description: 'Using Redis pools so structural traffic surges sit safely in memory rather than taking down primary tables.',
+    title: '3. Real-time Systems',
+    description: 'Using Node.js, Redis, and event-driven patterns for responsive backend workflows.',
     color: 'text-emerald-700',
   },
 ];
 
 const logs = [
-  'In 11+ years, zero API integrations have failed due to unvalidated input objects. Contract-first RESTful testing means validation runs before DB compilation hooks.',
-  'Stripe / Mangopay payments isolation level set to SERIALIZABLE during core debit handshakes. Eliminates race conditions in concurrent lottery ticketing.',
-  'TableTap AI operations uses sub-150ms Redis queue relays to isolate long-running Python FastAPI analysis loads from the core database process.',
+  '5+ years of Python experience across Django, Flask, and FastAPI, including e-Commerce, EdTech, analytics, and real-time products.',
+  'Laravel and Symfony experience includes RESTful aviation and logistics systems, KYC workflows, and global payment integrations.',
+  'Redis-backed event-driven processing supports real-time workloads, caching, and high-availability backend services.',
 ];
 
 type AboutSectionProps = {
@@ -36,15 +36,12 @@ type AboutSectionProps = {
 export default function AboutSection({ activePillar, onSelectPillar }: AboutSectionProps) {
   return (
     <section id="about-section-point" className="space-y-6">
-      <SectionHeading number="_01" title="The Quality Paradigm (Why SQA Roots Matter)" />
+      <SectionHeading number="_01" title="Business-Driven Engineering" />
 
       <div className="space-y-6 rounded-xl border border-stone-300 bg-stone-100/20 p-6">
         <div className="max-w-none text-xs leading-relaxed text-stone-700 sm:text-sm">
           <p>
-            Most system architects build features and let testing teams worry about scalability or
-            edge failures. Because my career set its foundations in{' '}
-            <strong>2013 as an SQA Engineer at Hungrynaki.com</strong>, I look at software
-            development from the end-state error tolerance first.
+            I design backend systems with a business-first mindset, choosing technologies based on scalability, performance, and business needs. Python powers service and data workflows, Laravel and Symfony support core business platforms, while Node.js, Redis, and AWS drive real-time and distributed systems.
           </p>
         </div>
 
@@ -79,7 +76,7 @@ export default function AboutSection({ activePillar, onSelectPillar }: AboutSect
 
         <div className="rounded border border-stone-300 bg-stone-50 p-3.5 font-mono text-[11px] text-stone-700">
           <p className="mb-1.5 text-[9px] font-bold uppercase tracking-widest text-stone-600">
-            Root QA Architectural Log:
+            Backend Engineering Profile:
           </p>
           <p className="leading-relaxed">
             <span className="text-amber-600">INFO:</span> {logs[activePillar]}
