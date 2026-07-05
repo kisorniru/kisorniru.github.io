@@ -1,16 +1,25 @@
 type SectionHeadingProps = {
-  number: string;
   title: string;
+  eyebrow?: string;
+  description?: string;
 };
 
-export default function SectionHeading({ number, title }: SectionHeadingProps) {
+export default function SectionHeading({ title, eyebrow, description }: SectionHeadingProps) {
   return (
-    <div className="flex items-baseline gap-2.5">
-      <span className="font-mono text-xs text-amber-500">{number}</span>
-      <h3 className="font-display text-xl font-bold uppercase tracking-wider text-stone-950">
+    <div className="max-w-2xl space-y-3">
+      {eyebrow && (
+        <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-accent-strong)]">
+          {eyebrow}
+        </p>
+      )}
+      <h2 className="text-3xl font-bold tracking-[-0.035em] text-[var(--color-ink)] sm:text-4xl">
         {title}
-      </h3>
-      <div className="h-px flex-1 bg-stone-300" />
+      </h2>
+      {description && (
+        <p className="text-base leading-7 text-[var(--color-muted)] sm:text-lg">
+          {description}
+        </p>
+      )}
     </div>
   );
 }

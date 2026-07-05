@@ -3,30 +3,44 @@ import SectionHeading from '../layout/SectionHeading';
 
 export default function SkillsSection() {
   return (
-    <section id="skills-section-point" className="space-y-6">
-      <SectionHeading number="_04" title="Architectural Skill Matrices" />
+    <section id="skills" className="scroll-mt-24 pt-16 sm:pt-20">
+      <SectionHeading
+        title="Architectural Skill Matrices"
+      />
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="mt-12 grid overflow-hidden rounded-3xl border border-[var(--color-line)] bg-white/45 md:grid-cols-2">
         {SKILL_GROUPS.map((group) => (
-          <div key={group.category} className="space-y-4 rounded-xl border border-stone-300 bg-stone-100/20 p-5">
-            <h4 className="border-b border-stone-300 pb-2 font-mono text-xs font-bold uppercase tracking-widest text-stone-700">
+          <article
+            key={group.category}
+            className="border-b border-[var(--color-line)] p-6 last:border-b-0 md:p-8 md:[&:nth-child(odd)]:border-r md:[&:nth-last-child(-n+2)]:border-b-0"
+          >
+            <h3 className="text-lg font-semibold tracking-[-0.02em] text-[var(--color-ink)]">
               {group.category}
-            </h4>
-            <div className="space-y-3">
+            </h3>
+            <div className="mt-6 space-y-6">
               {group.skills.map((skill) => (
-                <div key={skill.name} className="space-y-1.5">
-                  <div className="flex items-baseline justify-between text-xs">
-                    <span className="font-sans font-semibold text-stone-900">{skill.name}</span>
-                    <span className="font-mono text-[11px] text-amber-600">{skill.level}%</span>
+                <div key={skill.name}>
+                  <h4 className="text-base font-semibold text-[var(--color-ink)]">{skill.name}</h4>
+                  <div
+                    role="progressbar"
+                    aria-label={`${skill.name} proficiency`}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-valuenow={skill.level}
+                    className="mt-3 h-2 overflow-hidden rounded-full bg-[var(--color-line)]"
+                  >
+                    <div
+                      className="h-full rounded-full bg-[var(--color-accent)]"
+                      style={{ width: `${skill.level}%` }}
+                    />
                   </div>
-                  <div className="h-1.5 w-full overflow-hidden rounded-full border border-stone-200 bg-stone-50">
-                    <div className="h-full rounded-full bg-amber-500" style={{ width: `${skill.level}%` }} />
-                  </div>
-                  {skill.info && <p className="font-mono text-[10px] text-stone-600">{skill.info}</p>}
+                  {skill.info && (
+                    <p className="mt-3 text-sm leading-6 text-[var(--color-muted)]">{skill.info}</p>
+                  )}
                 </div>
               ))}
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

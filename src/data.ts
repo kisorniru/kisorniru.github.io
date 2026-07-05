@@ -31,7 +31,7 @@ export interface SkillGroup {
 }
 
 export const STR_PORT_TITLE = 'Noor-A-Alam Siddique';
-export const STR_PORT_SUBTITLE = 'Solutions Architect & Senior Software Engineer | Django, FastAPI, Laravel, Node.js, AWS';
+export const STR_PORT_SUBTITLE = 'Solutions Architect & Senior Software Engineer | Django, FastAPI, Laravel, Node.js, AWS, OWASP';
 export const STR_PORT_EMAIL = 'kisorniru@gmail.com';
 export const STR_PORT_PHONE = '+880 1725 156 188';
 export const STR_PORT_LOCATION = 'Dhaka, Bangladesh';

@@ -3,52 +3,53 @@ import SectionHeading from '../layout/SectionHeading';
 
 export default function ExperienceSection() {
   return (
-    <section id="experience-section-point" className="space-y-6">
-      <SectionHeading number="_02" title="Senior Experience Chronicles" />
+    <section id="experience" className="scroll-mt-24 pt-16 sm:pt-20">
+      <SectionHeading
+        title="Senior Experience Chronicles"
+      />
 
-      <div className="relative ml-2 space-y-10 border-l border-stone-300 py-2 pl-4 sm:pl-6">
+      <div className="mt-12 divide-y divide-[var(--color-line)] border-t border-[var(--color-line)]">
         {WORK_HISTORY.map((job) => (
-          <article key={job.id} className="group relative space-y-2">
-            <span className="absolute left-[-21px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-amber-500 bg-stone-50 transition-all group-hover:scale-125 sm:left-[-29px]" />
-
-            <div className="flex flex-col justify-between gap-1 sm:flex-row sm:items-center">
-              <div>
-                <h4 className="font-display text-base font-bold leading-tight text-stone-950">
-                  {job.role}
-                </h4>
-                <p className="text-xs font-medium text-stone-700">
-                  {job.company} — <span className="text-amber-600">{job.location}</span>
-                </p>
-              </div>
-              <div className="w-fit rounded border border-stone-300 bg-stone-100 px-2 py-0.5 font-mono text-[10px] font-bold uppercase text-stone-600">
+          <article key={job.id} className="grid gap-5 py-8 md:grid-cols-[210px_1fr] md:gap-10">
+            <div className="space-y-1 text-sm text-[var(--color-muted)]">
+              <p className="font-semibold text-[var(--color-accent-strong)]">
                 {job.period}
-              </div>
+              </p>
+              <p>{job.type}</p>
+              <p>{job.location}</p>
             </div>
 
-            <ul className="space-y-1.5 pl-1 text-xs leading-relaxed text-stone-700">
+            <div>
+              <h3 className="text-xl font-semibold tracking-[-0.025em] text-[var(--color-ink)]">
+                {job.role}
+              </h3>
+              <p className="mt-1 text-base font-medium text-[var(--color-muted)]">{job.company}</p>
+
+              <ul className="mt-5 space-y-3 text-base leading-7 text-[var(--color-muted)]">
               {job.description.map((bullet) => (
                 <li key={bullet} className="flex gap-2">
-                  <span className="text-stone-500">•</span>
+                    <span className="mt-[11px] h-1 w-1 shrink-0 rounded-full bg-[var(--color-accent)]" />
                   <span>{bullet}</span>
                 </li>
               ))}
-            </ul>
+              </ul>
 
-            {job.projects.length > 0 && (
-              <div className="flex flex-wrap items-center gap-1.5 pt-2">
-                <span className="mr-1 font-mono text-[10px] uppercase tracking-widest text-stone-600">
-                  Led Projects:
-                </span>
+              {job.projects.length > 0 && (
+                <div className="mt-5 flex flex-wrap items-center gap-2" aria-label="Projects led">
+                  <span className="mr-1 text-sm font-semibold text-[var(--color-muted)]">
+                    Led Projects:
+                  </span>
                 {job.projects.map((project) => (
                   <span
                     key={project}
-                    className="rounded border border-stone-300 bg-stone-100 px-2 py-0.5 font-mono text-[10px] text-stone-700"
+                      className="rounded-full bg-white/60 px-3 py-1.5 text-xs font-semibold text-[var(--color-muted)]"
                   >
-                    #{project}
+                      #{project}
                   </span>
                 ))}
               </div>
-            )}
+              )}
+            </div>
           </article>
         ))}
       </div>

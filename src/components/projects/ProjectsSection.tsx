@@ -1,5 +1,6 @@
-import { Terminal } from 'lucide-react';
-import { PORTFOLIO_PROJECTS, Project } from '../../data';
+import { ArrowUpRight } from 'lucide-react';
+import { PORTFOLIO_PROJECTS } from '../../data';
+import type { Project } from '../../data';
 import SectionHeading from '../layout/SectionHeading';
 
 type ProjectsSectionProps = {
@@ -20,18 +21,22 @@ export default function ProjectsSection({
       : PORTFOLIO_PROJECTS.filter((project) => project.category === activeCategory);
 
   return (
-    <section id="projects-section-point" className="space-y-6">
-      <SectionHeading number="_03" title="Microservice Case Studies" />
+    <section id="projects" className="scroll-mt-24 pt-16 sm:pt-20">
+      <SectionHeading
+        title="Microservice Case Studies"
+      />
 
-      <div className="flex flex-wrap gap-2 font-mono text-xs">
+      <div className="mt-10 flex flex-wrap gap-2" aria-label="Filter projects by category">
         {categories.map((category) => (
           <button
+            type="button"
             key={category}
             onClick={() => onCategoryChange(category)}
-            className={`rounded px-3 py-1 transition-all ${
+            aria-pressed={activeCategory === category}
+            className={`min-h-11 rounded-full px-4 text-sm font-semibold transition-colors ${
               activeCategory === category
-                ? 'bg-amber-500 font-bold text-stone-950'
-                : 'border border-stone-300 bg-stone-100 text-stone-700 hover:border-stone-500'
+                ? 'bg-[var(--color-ink)] text-white'
+                : 'border border-[var(--color-line)] bg-white/50 text-[var(--color-muted)] hover:border-[var(--color-line-strong)] hover:text-[var(--color-ink)]'
             }`}
           >
             {category}
@@ -39,7 +44,7 @@ export default function ProjectsSection({
         ))}
       </div>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
         {filteredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} onInspect={() => onProjectSelect(project)} />
         ))}
@@ -50,48 +55,48 @@ export default function ProjectsSection({
 
 function ProjectCard({ project, onInspect }: { project: Project; onInspect: () => void }) {
   return (
-    <article className="flex flex-col justify-between space-y-4 rounded-xl border border-stone-300 bg-stone-100/30 p-5 transition-all hover:border-stone-400/80">
-      <div className="space-y-2">
-        <div className="flex items-start justify-between gap-3">
-          <span className="rounded border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-amber-600">
+    <article className="flex flex-col justify-between rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] p-6 shadow-[0_12px_35px_rgba(55,45,35,0.04)] transition-transform hover:-translate-y-1">
+      <div>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <span className="text-sm font-semibold text-[var(--color-accent-strong)]">
             {project.category}
           </span>
-          <span className="text-right font-mono text-[10px] uppercase text-stone-600">{project.role}</span>
+          <span className="text-sm text-[var(--color-muted)]">{project.role}</span>
         </div>
-        <h4 className="font-display text-base font-bold text-stone-950">{project.title}</h4>
-        <p className="text-[11.5px] leading-relaxed text-stone-700">{project.description}</p>
-      </div>
+        <h3 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-[var(--color-ink)]">
+          {project.title}
+        </h3>
+        <p className="mt-3 text-base leading-7 text-[var(--color-muted)]">{project.description}</p>
 
-      <div className="space-y-2">
-        <p className="font-mono text-[10px] uppercase tracking-widest text-stone-600">Active Stack:</p>
-        <div className="flex flex-wrap gap-1">
+        <p className="mt-5 text-sm font-semibold text-[var(--color-muted)]">Active Stack:</p>
+        <div className="mt-2 flex flex-wrap gap-2" aria-label={`${project.title} technologies`}>
           {project.tech.map((tech) => (
             <span
               key={tech}
-              className="rounded border border-stone-300/85 bg-stone-100 px-1.5 py-0.5 font-mono text-[9.5px] text-stone-800"
+              className="rounded-full bg-[var(--color-canvas)] px-3 py-1.5 text-xs font-semibold text-[var(--color-muted)]"
             >
               {tech}
             </span>
           ))}
         </div>
-      </div>
-
-      <div className="grid grid-cols-3 gap-2 border-t border-stone-300/60 pt-3 text-center">
+        <div className="mt-6 grid grid-cols-3 gap-3 border-t border-[var(--color-line)] pt-5">
         {project.stats.map((stat) => (
           <div key={stat.label}>
-            <div className="font-mono text-xs font-bold text-stone-950">{stat.value}</div>
-            <div className="mt-0.5 overflow-hidden text-ellipsis whitespace-nowrap text-[9px] text-stone-600">
+              <div className="text-sm font-bold text-[var(--color-ink)]">{stat.value}</div>
+              <div className="mt-1 text-xs leading-4 text-[var(--color-muted)]">
               {stat.label}
             </div>
           </div>
         ))}
+        </div>
       </div>
 
       <button
+        type="button"
         onClick={onInspect}
-        className="flex w-full items-center justify-center gap-1 rounded border border-stone-400 bg-stone-200 px-3 py-1.5 text-center font-mono text-[10px] text-stone-950 transition-all hover:bg-stone-300"
+        className="mt-6 flex min-h-11 w-fit items-center gap-2 rounded-lg font-semibold text-[var(--color-ink)] transition-colors hover:text-[var(--color-accent-strong)]"
       >
-        <Terminal size={12} /> Inspect Case Study
+        Inspect Case Study <ArrowUpRight size={17} aria-hidden="true" />
       </button>
     </article>
   );
